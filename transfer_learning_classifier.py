@@ -60,8 +60,7 @@ with tf.Session() as sess:
 X_train, X_test, y_train, y_test = cross_validation.train_test_split(
     features, labels, test_size=0.2)
 
-# we are givind rbf to work with multiple classes and series for param
-# C and gamma and using
+# model selection
 clf = grid_search.GridSearchCV(svm.SVC(probability=True), [{"kernel": ["rbf"], "C": [
                                1, 10, 100, 1000], "gamma": [1e-2, 1e-3, 1e-4, 1e-5]}], cv=10)
 
